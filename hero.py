@@ -22,7 +22,7 @@ class SuperHero:
         return len(self.catchphrase)
 
 class FieryHero(SuperHero):
-    lacation = 'volcano'
+    location = 'volcano'
 
     def __init__(self, name, nickname, superpower, health_points, catchphrase, damage, fly = False):
         super().__init__(name, nickname, superpower, health_points, catchphrase)
@@ -39,7 +39,7 @@ class FieryHero(SuperHero):
 
 
 class WaterHero(SuperHero):
-    lacation = 'ocean'
+    location = 'ocean'
 
     def __init__(self, name, nickname, superpower, health_points, catchphrase, damage, fly = False):
         super().__init__(name, nickname, superpower, health_points, catchphrase)
@@ -60,8 +60,8 @@ class Villain(FieryHero):
     def gen_x(self):
         pass
 
-    def crit(self, damages):
-        self.damage **= damages
+    def crit(self):
+        return self.damage ** 3
 
 
 
@@ -88,6 +88,7 @@ water_hero.fly_damage()
 print()
 
 
-villain.crit(3)
+villain.crit()
 villain.fly_damage()
-print()
+
+print(Villain.crit(water_hero))
